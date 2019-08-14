@@ -33,13 +33,11 @@ class Samdoit_Mageportfolio_Block_Adminhtml_Mageportfolio_Grid extends Mage_Admi
           'index'     => 'title',
       ));
 
-	  /*
       $this->addColumn('content', array(
-			'header'    => Mage::helper('mageportfolio')->__('Item Content'),
+			'header'    => Mage::helper('mageportfolio')->__('Category'),
 			'width'     => '150px',
-			'index'     => 'content',
+			'index'     => 'category',
       ));
-	  */
 
       $this->addColumn('status', array(
           'header'    => Mage::helper('mageportfolio')->__('Status'),

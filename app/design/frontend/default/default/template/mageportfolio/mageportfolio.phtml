@@ -1,8 +1,15 @@
 <?php
 if(!$_REQUEST)
 {
-$pageDetail = $this->getMageportfolio();
+//$pageDetail = $this->getMageportfolio();
+$pageCategory = $this->getMageportfolio('','category');
+$i=0;
+foreach($pageCategory as $key_cat=>$value_cat)
+{
+$pageDetail = $this->getMageportfolio('','',$value_cat['category']);
 ?>
+<div class="category">
+<h3><?php echo $value_cat['category'] ; ?></h3>
 <ul id="portfolio-grid">
 <?php foreach($pageDetail as $key=>$value) {?>
 <li>
@@ -12,28 +19,39 @@ $pageDetail = $this->getMageportfolio();
 	</div>
 	<div id="portfolio-content">
 		<?php
-		$thumb = new Imagick();
-		$files = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$value['filename'];
-		$file_info = pathinfo($files);
-		$out_file_name = $file_info['filename'].'_320_240.'.$file_info['extension'];
-		if($out_file_name)
+		if($value['filename'])
 		{
-			$thumb->readImage($files);
-			$thumb->resizeImage(320,240,Imagick::FILTER_LANCZOS,1);
-			$files_output = Mage::getBaseDir('media') . DS .$out_file_name;
-			$thumb->writeImage($files_output);
-			$thumb->clear();
-			$thumb->destroy();
-		}
+			$thumb = new Imagick();
+			$files = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$value['filename'];
+			$file_info = pathinfo($files);
+			$out_file_name = $file_info['filename'].'_320_240.'.$file_info['extension'];
+			if($out_file_name)
+			{
+				$thumb->readImage($files);
+				$thumb->resizeImage(320,240,Imagick::FILTER_LANCZOS,1);
+				$files_output = Mage::getBaseDir('media') . DS .$out_file_name;
+				$thumb->writeImage($files_output);
+				$thumb->clear();
+				$thumb->destroy();
+			}
 		?>
 		<img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$out_file_name;?>"  alt="<?php echo $value['title'];?>">
+		<?php } ?>
 	</div>
 </div>
 </li>
 <?php } ?>
 </ul>
 <script type="text/javascript">decorateGeneric($$('ul#portfolio-grid>li'), ['odd','even','first','last'])</script>
+</div>
+<?php
+}
 
+echo "<pre>";
+print_r($cat_val);
+echo "</pre>";
+
+?>
 <?php
 }
 else
@@ -47,21 +65,24 @@ foreach($pageDetail as $value) {
         </div>
         <div id="portfolio-content">
                 <?php
-                $thumb = new Imagick();
-                $files = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$value['filename'];
-                $file_info = pathinfo($files);
-                $out_file_name = $file_info['filename'].'_320_240.'.$file_info['extension'];
-                if($out_file_name)
+                if($value['filename'])
                 {
-                        $thumb->readImage($files);
-                        $thumb->resizeImage(320,240,Imagick::FILTER_LANCZOS,1);
-                        $files_output = Mage::getBaseDir('media') . DS .$out_file_name;
-                        $thumb->writeImage($files_output);
-                        $thumb->clear();
-                        $thumb->destroy();
-                }
+	                $thumb = new Imagick();
+        	        $files = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$value['filename'];
+                	$file_info = pathinfo($files);
+	                $out_file_name = $file_info['filename'].'_320_240.'.$file_info['extension'];
+        	        if($out_file_name)
+                	{
+                        	$thumb->readImage($files);
+	                        $thumb->resizeImage(320,240,Imagick::FILTER_LANCZOS,1);
+        	                $files_output = Mage::getBaseDir('media') . DS .$out_file_name;
+                	        $thumb->writeImage($files_output);
+                        	$thumb->clear();
+	                        $thumb->destroy();
+        	        }
                 ?>
                 <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$out_file_name;?>"  alt="<?php echo $value['title'];?>"><br/><br/>
+		<?php } ?>
                 <?php echo $value['content'];?>
         </div>
 </div>

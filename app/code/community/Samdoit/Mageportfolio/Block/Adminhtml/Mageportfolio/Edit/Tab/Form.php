@@ -36,6 +36,12 @@ class Samdoit_Mageportfolio_Block_Adminhtml_Mageportfolio_Edit_Tab_Form extends 
               ),
           ),
       ));
+      $fieldset->addField('category', 'text', array(
+          'label'     => Mage::helper('mageportfolio')->__('Category'),
+          'required'  => true,
+          'name'      => 'category',
+	  'value'     => 'Uncategor',
+      ));
      
       $fieldset->addField('content', 'editor', array(
           'name'      => 'content',
