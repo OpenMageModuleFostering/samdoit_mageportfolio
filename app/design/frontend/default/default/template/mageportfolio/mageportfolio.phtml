@@ -3,6 +3,8 @@ if(!$_REQUEST)
 {
 //$pageDetail = $this->getMageportfolio();
 $pageCategory = $this->getMageportfolio('','category');
+if(!empty($pageCategory))
+{
 $i=0;
 foreach($pageCategory as $key_cat=>$value_cat)
 {
@@ -46,11 +48,15 @@ $pageDetail = $this->getMageportfolio('','',$value_cat['category']);
 </div>
 <?php
 }
-
-echo "<pre>";
-print_r($cat_val);
-echo "</pre>";
-
+}
+else
+{
+?>
+<p class="note-msg">
+    <?php echo $this->__('You have no Portfolio.') ?>
+</p>
+<?php
+}
 ?>
 <?php
 }
