@@ -11,7 +11,7 @@ class Samdoit_Mageportfolio_Block_Mageportfolio extends Mage_Core_Block_Template
 	{
                 $resource = Mage::getSingleton('core/resource');
                 $readConnection = $resource->getConnection('core_read');
-                $query = "SELECT *FROM mageportfolio WHERE status=1";
+                $query = "SELECT *FROM ".$resource->getTableName('mageportfolio/mageportfolio')." WHERE status=1";
                 $pageCollection = $readConnection->fetchAll($query);
 		return $pageCollection;
 	}
