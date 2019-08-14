@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Samdoit_Mageportfolio</name>
+    <version>1.0.0</version>
+    <stability>stable</stability>
+    <license>OSL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Portfolio easy to create your portfolio detail snapshot content of portfolio and easy to access by admin user</summary>
+    <description>Magento Portfolio to add your portfolio in magento admin you can view from your front end, you can view the portfolio by http://your-domain/portfolio</description>
+    <notes>Stable Version tested the compatibility with magento 1.7.2</notes>
+    <authors><author><name>Samdoit</name><user>samdoit</user><email>arulmanickams@samdoit.com</email></author></authors>
+    <date>2013-08-20</date>
+    <time>11:40:01</time>
+    <contents><target name="mageetc"><dir name="modules"><file name="Samdoit_Mageportfolio.xml" hash="dcb64db6ad3dae0c5159cfdf6bb6577d"/></dir></target><target name="magecommunity"><dir name="Samdoit"><dir name="Mageportfolio"><dir><dir name="Block"><dir name="Adminhtml"><dir name="Mageportfolio"><dir name="Edit"><file name="Form.php" hash="cc698dcf823567d00e4fc8471a582e06"/><dir name="Tab"><file name="Form.php" hash="22534371cd7fac3c324fc89c53b86282"/></dir><file name="Tabs.php" hash="a06c18da85fd0193ba9cc4dd21b6c2a5"/></dir><file name="Edit.php" hash="567bbee4f4600fd829c3d7799eda5260"/><file name="Grid.php" hash="40dc87defc4117a2266b7ee5c99f1cf0"/></dir><file name="Mageportfolio.php" hash="c415927c72ae9e96cf4015648385d469"/></dir><file name="Mageportfolio.php" hash="6066bd107bb7594285f0d02ecc0ba45d"/></dir><dir name="Helper"><file name="Data.php" hash="6ce7a43b4ff0a8db4bcf3083acfcb73b"/></dir><dir name="Model"><file name="Mageportfolio.php" hash="761446fe4bdaad58405af79bac8e5e39"/><dir name="Mysql4"><dir name="Mageportfolio"><file name="Collection.php" hash="44f8c04d09679178a5493387cf2bc259"/></dir><file name="Mageportfolio.php" hash="657f9cf6e7c4d435169fd85934c68552"/></dir><file name="Status.php" hash="daf6330870b4c091b5be510b1d379493"/></dir><dir name="controllers"><dir name="Adminhtml"><file name="MageportfolioController.php" hash="e70d03debbbced4501144e09416625b2"/></dir><file name="IndexController.php" hash="fa482fc73dd8568ae615c237f06f0475"/></dir><dir name="etc"><file name="config.xml" hash="e1b1ce9e7dd98d9b68221ecc36fc505f"/></dir><dir name="sql"><dir name="mageportfolio_setup"><file name="mysql4-install-1.0.0.php" hash="37aa00fead24136e24f356e3c16f3513"/></dir></dir></dir></dir></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><file name="mageportfolio.xml" hash="91ced8de17332ecfdfe307c575ad0de4"/></dir></dir></dir></dir><dir name="frontend"><dir name="default"><dir name="default"><dir name="template"><dir name="mageportfolio"><file name="mageportfolio.phtml" hash="aafb21a30bdaccdd469016b80a4d8b83"/></dir></dir><dir name="layout"><file name="mageportfolio.xml" hash="ab2876109f8a2a0bf576da5bc7e0e852"/></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

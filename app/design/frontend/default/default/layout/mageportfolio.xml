@@ -1,0 +1,12 @@
+<layout version="0.1.0">
+    <mageportfolio_index_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="mageportfolio/mageportfolio" name="mageportfolio" template="mageportfolio/mageportfolio.phtml" />
+        </reference>
+    </mageportfolio_index_index>
+</layout> 

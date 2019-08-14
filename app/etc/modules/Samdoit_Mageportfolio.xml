@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Samdoit_Mageportfolio>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Samdoit_Mageportfolio>
+    </modules>
+</config> 
