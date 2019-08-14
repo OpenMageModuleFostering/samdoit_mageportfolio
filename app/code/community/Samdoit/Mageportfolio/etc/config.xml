@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Samdoit_Mageportfolio>
-            <version>1.0.1</version>
+            <version>1.0.2</version>
         </Samdoit_Mageportfolio>
     </modules>
     <frontend>
@@ -40,7 +40,7 @@
 				<children>
 					<items module="mageportfolio">
 						<title>Portfolio</title>
-						<sort_order>25</sort_order>
+						<sort_order>50</sort_order>
 						<action>mageportfolio/adminhtml_mageportfolio</action>
 					</items>
 				</children>
