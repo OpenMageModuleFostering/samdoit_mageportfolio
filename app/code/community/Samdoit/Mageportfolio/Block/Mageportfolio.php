@@ -17,7 +17,14 @@ class Samdoit_Mageportfolio_Block_Mageportfolio extends Mage_Core_Block_Template
                         $query = "SELECT category FROM ".$resource->getTableName('mageportfolio/mageportfolio')." WHERE status=1 GROUP BY category";
 		else if($category)
 	                $query = "SELECT *FROM ".$resource->getTableName('mageportfolio/mageportfolio')." WHERE status=1 AND category='$category'";
+
+	            if ($query) {
                 $pageCollection = $readConnection->fetchAll($query);
+	            }
+	            else
+	            {
+	            	$pageCollection = '';
+	            }
 		return $pageCollection;
 	}
 }

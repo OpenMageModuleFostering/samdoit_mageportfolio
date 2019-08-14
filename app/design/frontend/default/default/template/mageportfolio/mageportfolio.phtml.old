@@ -1,6 +1,7 @@
 <?php
 if(!$_REQUEST)
 {
+//$pageDetail = $this->getMageportfolio();
 $pageCategory = $this->getMageportfolio('','category');
 if(!empty($pageCategory))
 {

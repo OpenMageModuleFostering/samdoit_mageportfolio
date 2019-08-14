@@ -6,7 +6,7 @@ class Samdoit_Mageportfolio_Block_Adminhtml_Mageportfolio_Edit_Tab_Form extends 
   {
       $form = new Varien_Data_Form();
       $this->setForm($form);
-      $fieldset = $form->addFieldset('mageportfolio_form', array('legend'=>Mage::helper('mageportfolio')->__('Item information')));
+      $fieldset = $form->addFieldset('mageportfolio_form', array('legend'=>Mage::helper('mageportfolio')->__('Portfolio Information')));
      
       $fieldset->addField('title', 'text', array(
           'label'     => Mage::helper('mageportfolio')->__('Title'),
@@ -15,7 +15,7 @@ class Samdoit_Mageportfolio_Block_Adminhtml_Mageportfolio_Edit_Tab_Form extends 
           'name'      => 'title',
       ));
 
-      $fieldset->addField('filename', 'file', array(
+      $fieldset->addField('filename', 'image', array(
           'label'     => Mage::helper('mageportfolio')->__('File'),
           'required'  => false,
           'name'      => 'filename',

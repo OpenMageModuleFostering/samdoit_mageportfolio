@@ -50,6 +50,7 @@ class Samdoit_Mageportfolio_Adminhtml_MageportfolioController extends Mage_Admin
 	}
  
 	public function saveAction() {
+
 		if ($data = $this->getRequest()->getPost()) {
 			
 			if(isset($_FILES['filename']['name']) && $_FILES['filename']['name'] != '') {
@@ -68,18 +69,27 @@ class Samdoit_Mageportfolio_Adminhtml_MageportfolioController extends Mage_Admin
 					$uploader->setFilesDispersion(false);
 							
 					// We set media as the upload dir
-					$path = Mage::getBaseDir('media') . DS ;
-					$uploader->save($path, $_FILES['filename']['name'] );
+					$pathinfo = pathinfo($_FILES["filename"]["name"]);
+					$filename_final = $this->clean($pathinfo['filename']).'.'.$pathinfo['extension'];
+					$path = Mage::getBaseDir('media') . DS .'Mageportfolio' . DS ;
+					$uploader->save($path, $filename_final );
 					
 				} catch (Exception $e) {
-		      
+					echo $e->getMessage();
+					Mage::log($e->getMessage(), null, 'Mageportfolio.log');
 		        }
-	        
+	        	
 		        //this way the name is saved in DB
-	  			$data['filename'] = $_FILES['filename']['name'];
-			}
-	  			
-	  			
+		        $data['filename'] = 'Mageportfolio' . DS . $filename_final;
+		    }
+		    else {
+		    	if(isset($data['filename']['delete']) && $data['filename']['delete'] == 1)
+		    		$data['filename'] = '';
+		    	else
+		    		unset($data['filename']);  
+		    }
+
+
 			$model = Mage::getModel('mageportfolio/mageportfolio');		
 			$model->setData($data)
 				->setId($this->getRequest()->getParam('id'));
@@ -176,4 +186,22 @@ class Samdoit_Mageportfolio_Adminhtml_MageportfolioController extends Mage_Admin
         }
         $this->_redirect('*/*/index');
     }
+	public function exportCsvAction() {
+		$fileName = 'portfolio.csv';
+		$content = $this->getLayout ()
+			->createBlock('mageportfolio/adminhtml_mageportfolio_grid')
+			->getCsvFile();
+		$this->_prepareDownloadResponse($fileName, $content);
+	}
+        public function exportXmlAction() {
+                $fileName = 'portfolio.xml';
+                $content = $this->getLayout ()
+                        ->createBlock('mageportfolio/adminhtml_mageportfolio_grid')
+                        ->getExcelFile();
+                $this->_prepareDownloadResponse($fileName, $content);
+        }
+        public function clean($string) {
+                $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+                return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
+        }
 }

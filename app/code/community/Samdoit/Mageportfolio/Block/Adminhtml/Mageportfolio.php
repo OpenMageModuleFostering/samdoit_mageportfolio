@@ -5,8 +5,8 @@ class Samdoit_Mageportfolio_Block_Adminhtml_Mageportfolio extends Mage_Adminhtml
   {
     $this->_controller = 'adminhtml_mageportfolio';
     $this->_blockGroup = 'mageportfolio';
-    $this->_headerText = Mage::helper('mageportfolio')->__('Item Manager');
-    $this->_addButtonLabel = Mage::helper('mageportfolio')->__('Add Item');
+    $this->_headerText = Mage::helper('mageportfolio')->__('Manage Portfolio');
+    $this->_addButtonLabel = Mage::helper('mageportfolio')->__('Add New Portfolio');
     parent::__construct();
   }
 }
