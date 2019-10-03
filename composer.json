@@ -1,7 +1,7 @@
 {
-    "name": "OpenMageModuleFostering\/Samdoit_Mageportfolio",
+    "name": "openmage-module-fostering\/samdoit_mageportfolio",
     "type": "magento-module",
-    "license": "OSL",
+    "license": "OSL-3.0",
     "homepage": "",
     "description": "Portfolio easy to create your portfolio detail snapshot content of portfolio and easy to access by admin user",
     "authors": [
