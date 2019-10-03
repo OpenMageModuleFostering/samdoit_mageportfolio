@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Samdoit_Mageportfolio",
+    "name": "OpenMageModuleFostering\/Samdoit_Mageportfolio",
     "type": "magento-module",
     "license": "OSL",
     "homepage": "",
     "description": "Portfolio easy to create your portfolio detail snapshot content of portfolio and easy to access by admin user",
     "authors": [
-    {
-        "name": "Samdoit",
-        "email": "arulmanickams@samdoit.com"
-    }
-],
+        {
+            "name": "Samdoit",
+            "email": "arulmanickams@samdoit.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
